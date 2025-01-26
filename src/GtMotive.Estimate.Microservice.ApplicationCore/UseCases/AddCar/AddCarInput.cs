@@ -1,14 +1,16 @@
-﻿namespace GtMotive.Estimate.Microservice.Domain.Entities
+﻿using System;
+
+namespace GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCar
 {
     /// <summary>
-    /// Represents a car entity with an Id, Brand, Model, Year, and Availability.
+    /// Represents the input data required to add a car.
     /// </summary>
-    public class Car
+    public class AddCarInput : IUseCaseInput
     {
         /// <summary>
-        /// Gets or sets the unique identifier for the car.
+        /// Gets or sets the license plate of the car.
         /// </summary>
-        public string Id { get; set; }
+        public string LicensePlate { get; set; }
 
         /// <summary>
         /// Gets or sets the brand of the car.
@@ -21,12 +23,12 @@
         public string Model { get; set; }
 
         /// <summary>
-        /// Gets or sets the year of the car.
+        /// Gets or sets the manufacturing date of the car.
         /// </summary>
-        public int Year { get; set; }
+        public DateTime ManufacturingDate { get; set; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether gets or sets the available status of the car.
+        /// Gets or sets a value indicating whether the car is available.
         /// </summary>
         public bool Available { get; set; }
     }

@@ -1,9 +1,9 @@
-﻿namespace GtMotive.Estimate.Microservice.Domain.Entities
+﻿namespace GtMotive.Estimate.Microservice.Domain.Entities.Base
 {
     /// <summary>
     /// Represents a user in the system.
     /// </summary>
-    public class User
+    public class UserBase
     {
         /// <summary>
         /// Gets or sets the unique identifier for the user.

@@ -1,15 +1,15 @@
 ﻿using System.Threading.Tasks;
-using GtMotive.Estimate.Microservice.Domain.Entities;
+using GtMotive.Estimate.Microservice.Domain.Entities.Base;
 
 namespace GtMotive.Estimate.Microservice.Infrastructure.Interfaces.Repositories
 {
     public interface IUserRepository
     {
-        Task<User> GetByIdAsync(string id);
+        Task<UserBase> GetByIdAsync(string id);
 
-        Task AddAsync(User usuario);
+        Task AddAsync(UserBase usuario);
 
-        Task UpdateAsync(User usuario);
+        Task UpdateAsync(UserBase usuario);
 
         Task DeleteAsync(string id);
     }
