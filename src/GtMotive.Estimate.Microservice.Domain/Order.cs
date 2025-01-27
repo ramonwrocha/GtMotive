@@ -1,31 +1,31 @@
 ﻿using System;
 
-namespace GtMotive.Estimate.Microservice.Domain.Entities
+namespace GtMotive.Estimate.Microservice.Domain
 {
     /// <summary>
     /// Represents an order in the system.
     /// </summary>
-    public class Order
+    public sealed class Order
     {
         /// <summary>
         /// Gets or sets the unique identifier for the order.
         /// </summary>
-        public string Id { get; set; }
+        public Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the unique identifier for the car associated with the order.
         /// </summary>
-        public string CarId { get; set; }
+        public Guid CarId { get; set; }
 
         /// <summary>
         /// Gets or sets the unique identifier for the customer associated with the order.
         /// </summary>
-        public string CustomerId { get; set; }
+        public Guid CustomerId { get; set; }
 
         /// <summary>
         /// Gets or sets the unique identifier for the employer associated with the order.
         /// </summary>
-        public string EmployerId { get; set; }
+        public Guid EmployerId { get; set; }
 
         /// <summary>
         /// Gets or sets the pick-up date for the order.

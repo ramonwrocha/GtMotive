@@ -1,4 +1,4 @@
-﻿namespace GtMotive.Estimate.Microservice.Domain.Entities.Enums
+﻿namespace GtMotive.Estimate.Microservice.Domain.Enums
 {
     /// <summary>
     /// Represents the position of an employer.

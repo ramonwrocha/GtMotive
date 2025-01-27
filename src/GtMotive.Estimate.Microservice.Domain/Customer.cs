@@ -1,11 +1,11 @@
-﻿using GtMotive.Estimate.Microservice.Domain.Entities.Base;
+﻿using GtMotive.Estimate.Microservice.Domain.Base;
 
-namespace GtMotive.Estimate.Microservice.Domain.Entities
+namespace GtMotive.Estimate.Microservice.Domain
 {
     /// <summary>
     /// Represents a customer entity that inherits from the User class.
     /// </summary>
-    public class Customer : UserBase
+    public sealed class Customer : UserBase
     {
         /// <summary>
         /// Gets or sets the document number of the customer.

@@ -1,4 +1,4 @@
-﻿namespace GtMotive.Estimate.Microservice.Domain.Entities.Base
+﻿namespace GtMotive.Estimate.Microservice.Domain.Base
 {
     /// <summary>
     /// Represents a user in the system.

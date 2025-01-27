@@ -1,14 +1,22 @@
-﻿namespace GtMotive.Estimate.Microservice.Domain.Entities
+﻿using System;
+using GtMotive.Estimate.Microservice.Domain.ValueObjects;
+
+namespace GtMotive.Estimate.Microservice.Domain
 {
     /// <summary>
     /// Represents a car entity with an Id, Brand, Model, Year, and Availability.
     /// </summary>
-    public class Car
+    public sealed class Car
     {
         /// <summary>
         /// Gets or sets the unique identifier for the car.
         /// </summary>
-        public string Id { get; set; }
+        public Guid Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the license plate of the car.
+        /// </summary>
+        public LicensePlate LicensePlate { get; set; }
 
         /// <summary>
         /// Gets or sets the brand of the car.
@@ -21,9 +29,9 @@
         public string Model { get; set; }
 
         /// <summary>
-        /// Gets or sets the year of the car.
+        /// Gets or sets the manufacturing date of the car.
         /// </summary>
-        public int Year { get; set; }
+        public ManufacturingDate ManufacturingDate { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether gets or sets the available status of the car.

@@ -4,6 +4,7 @@
         <TargetFramework>net9.0</TargetFramework>
         <RuleTargetType>Full</RuleTargetType>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <ImplicitUsings>enabled</ImplicitUsings>
     </PropertyGroup>
 
     <ItemGroup>

@@ -1,12 +1,21 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using GtMotive.Estimate.Microservice.ApplicationCore.Repositories;
+using GtMotive.Estimate.Microservice.Domain.ValueObjects;
 
 namespace GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCar
 {
     /// <summary>
     /// Use case for adding a car.
     /// </summary>
-    public class AddCarUseCase : IUseCase<AddCarInput>
+    /// <remarks>
+    /// Initializes a new instance of the <see cref="AddCarUseCase"/> class.
+    /// </remarks>
+    /// <param name="carWriteOnlyRepository">The car write-only repository.</param>
+    public class AddCarUseCase(ICarWriteOnlyRepository carWriteOnlyRepository) : IAddCarUseCase
     {
+        private readonly ICarWriteOnlyRepository _carWriteOnlyRepository = carWriteOnlyRepository;
+
         /// <summary>
         /// Executes the use case with the specified input.
         /// </summary>
@@ -14,8 +23,16 @@ namespace GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCar
         /// <returns>A task that represents the asynchronous operation.</returns>
         public async Task Execute(AddCarInput input)
         {
-            // Implementation here
-            await Task.CompletedTask;
+            ArgumentNullException.ThrowIfNull(input);
+
+            await _carWriteOnlyRepository.AddCar(new Domain.Car
+            {
+                LicensePlate = new LicensePlate(input.LicensePlate),
+                Brand = input.Brand,
+                Model = input.Model,
+                ManufacturingDate = new ManufacturingDate(input.ManufacturingDate),
+                Available = input.Available
+            });
         }
     }
 }

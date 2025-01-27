@@ -1,14 +1,30 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
+using GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCar;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GtMotive.Estimate.Microservice.Api.UseCases.AddCar
 {
-    public sealed class CarController : ControllerBase
+    [Route("api/[controller]")]
+    public sealed class CarController(IAddCarUseCase addCarUseCase) : ControllerBase
     {
+        private readonly IAddCarUseCase _addCarUseCase = addCarUseCase;
+
         [HttpPost]
-        public static Task<IActionResult> AddCar([FromBody] CarRequest request)
+        public async Task<IActionResult> AddCar([FromBody] CarRequest request)
         {
-            return Task.FromResult<IActionResult>(new ObjectResult(request));
+            ArgumentNullException.ThrowIfNull(request);
+
+            await _addCarUseCase.Execute(new AddCarInput
+            {
+                LicensePlate = request.LicensePlate,
+                Brand = request.Brand,
+                Model = request.Model,
+                ManufacturingDate = request.ManufacturingDate,
+                Available = request.Available
+            });
+
+            return new NoContentResult();
         }
     }
 }

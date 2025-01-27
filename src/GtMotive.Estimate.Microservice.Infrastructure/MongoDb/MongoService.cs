@@ -1,4 +1,4 @@
-﻿using GtMotive.Estimate.Microservice.Domain.Entities;
+﻿using GtMotive.Estimate.Microservice.Domain;
 using GtMotive.Estimate.Microservice.Infrastructure.MongoDb.Settings;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson.Serialization;
