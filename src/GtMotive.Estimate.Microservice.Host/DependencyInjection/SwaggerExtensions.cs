@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace GtMotive.Estimate.Microservice.Host.DependencyInjection
+namespace GtMotive.Estimate.Microservice.Host.DependencyInjection.Modules
 {
     internal static class SwaggerExtensions
     {

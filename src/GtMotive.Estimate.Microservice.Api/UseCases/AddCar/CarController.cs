@@ -8,21 +8,21 @@ namespace GtMotive.Estimate.Microservice.Api.UseCases.AddCar
     [Route("api/[controller]")]
     public sealed class CarController(IAddCarUseCase addCarUseCase) : ControllerBase
     {
-        private readonly IAddCarUseCase _addCarUseCase = addCarUseCase;
-
         [HttpPost]
         public async Task<IActionResult> AddCar([FromBody] CarRequest request)
         {
             ArgumentNullException.ThrowIfNull(request);
 
-            await _addCarUseCase.Execute(new AddCarInput
+            var model = new AddCarInput
             {
                 LicensePlate = request.LicensePlate,
                 Brand = request.Brand,
                 Model = request.Model,
-                ManufacturingDate = request.ManufacturingDate,
-                Available = request.Available
-            });
+                ManufacturingDate = (DateTime)request.ManufacturingDate,
+                Available = (bool)request.Available
+            };
+
+            await addCarUseCase.Execute(model);
 
             return new NoContentResult();
         }

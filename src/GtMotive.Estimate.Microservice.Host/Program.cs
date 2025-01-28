@@ -9,6 +9,7 @@ using GtMotive.Estimate.Microservice.Api;
 using GtMotive.Estimate.Microservice.Api.UseCases.AddCar;
 using GtMotive.Estimate.Microservice.Host.Configuration;
 using GtMotive.Estimate.Microservice.Host.DependencyInjection;
+using GtMotive.Estimate.Microservice.Host.DependencyInjection.Modules;
 using GtMotive.Estimate.Microservice.Infrastructure;
 using GtMotive.Estimate.Microservice.Infrastructure.MongoDb.Settings;
 using IdentityServer4.AccessTokenValidation;
@@ -69,7 +70,7 @@ var appSettings = appSettingsSection.Get<AppSettings>();
 builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDb"));
 
 builder.Services.AddControllers(ApiConfiguration.ConfigureControllers)
-    .WithApiControllers(builder.Configuration);
+    .WithApiControllers();
 
 builder.Services.AddBaseInfrastructure(builder.Environment.IsDevelopment());
 
@@ -98,7 +99,9 @@ builder.Services.AddAuthentication(options =>
         options.SupportedTokens = SupportedTokens.Jwt;
     });
 
+builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddSwagger(appSettings, builder.Configuration);
+builder.Services.RegisterIoCContainer(builder.Configuration);
 
 var app = builder.Build();
 

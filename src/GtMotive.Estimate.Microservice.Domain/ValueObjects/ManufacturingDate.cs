@@ -22,7 +22,7 @@ namespace GtMotive.Estimate.Microservice.Domain.ValueObjects
                 throw new ArgumentNullException(nameof(value), "The manufacturing date cannot be empty.");
             }
 
-            if (IsValidManufacturingDate(value))
+            if (!IsValidManufacturingDate(value))
             {
                 throw new ArgumentException($"The date must be within the last {MinimumYearsManufacturing} years.", nameof(value));
             }
@@ -42,7 +42,8 @@ namespace GtMotive.Estimate.Microservice.Domain.ValueObjects
         /// <returns>True if the date is within the last 5 years; otherwise, false.</returns>
         private static bool IsValidManufacturingDate(DateTime date)
         {
-            return date >= DateTime.Now.AddYears(-MinimumYearsManufacturing) && date <= DateTime.Now;
+            var yearValid = DateTime.Now.AddYears(-MinimumYearsManufacturing).Year;
+            return date.Year >= yearValid;
         }
     }
 }

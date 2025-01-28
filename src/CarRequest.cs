@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using Newtonsoft.Json;
 
 namespace GtMotive.Estimate.Microservice.Api.UseCases.AddCar
 {
@@ -10,8 +11,8 @@ namespace GtMotive.Estimate.Microservice.Api.UseCases.AddCar
 
         public string Model { get; set; }
 
-        public DateTime? ManufacturingDate { get; set; }
+        public DateTime ManufacturingDate { get; set; }
 
-        public bool? Available { get; set; }
+        public bool Available { get; set; }
     }
 }
