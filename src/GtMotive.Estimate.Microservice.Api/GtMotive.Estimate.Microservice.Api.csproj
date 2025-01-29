@@ -15,16 +15,7 @@
         <NoWarn>1701;1702;1591</NoWarn>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
     </PropertyGroup>
-
-    <ItemGroup>
-      <Compile Remove="UseCases\AddEmployer\**" />
-      <Compile Remove="UseCases\RentCar\**" />
-      <EmbeddedResource Remove="UseCases\AddEmployer\**" />
-      <EmbeddedResource Remove="UseCases\RentCar\**" />
-      <None Remove="UseCases\AddEmployer\**" />
-      <None Remove="UseCases\RentCar\**" />
-    </ItemGroup>
-
+  
     <ItemGroup>
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>

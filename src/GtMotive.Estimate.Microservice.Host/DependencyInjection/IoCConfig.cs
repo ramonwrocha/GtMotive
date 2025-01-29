@@ -6,6 +6,8 @@ using GtMotive.Estimate.Microservice.ApplicationCore.Repositories;
 using GtMotive.Estimate.Microservice.ApplicationCore.Repositories.Car;
 using GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCar;
 using GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCustomer;
+using GtMotive.Estimate.Microservice.ApplicationCore.UseCases.GetAvailableCars;
+using GtMotive.Estimate.Microservice.ApplicationCore.UseCases.RentCar;
 using GtMotive.Estimate.Microservice.Infrastructure.MongoDb;
 using GtMotive.Estimate.Microservice.Infrastructure.MongoDb.Repositories;
 using GtMotive.Estimate.Microservice.Infrastructure.MongoDb.Settings;
@@ -46,6 +48,8 @@ namespace GtMotive.Estimate.Microservice.Host.DependencyInjection
         {
             services.AddSingleton<IAddCarUseCase, AddCarUseCase>();
             services.AddSingleton<IAddCustomerUseCase, AddCustomerUseCase>();
+            services.AddSingleton<IGetAvailableCarsUseCase, GetAvailableCarsUseCase>();
+            services.AddSingleton<IRentCarUseCase, RentCarUseCase>();
         }
 
         private static void RegisterRepositories(this IServiceCollection services)
@@ -53,6 +57,7 @@ namespace GtMotive.Estimate.Microservice.Host.DependencyInjection
             services.AddSingleton<ICarReadOnlyRepository, CarRepository>();
             services.AddSingleton<ICarWriteOnlyRepository, CarRepository>();
             services.AddSingleton<ICustomerWriteOnlyRepository, CustomerRepository>();
+            services.AddSingleton<IRentalOrderWriteOnlyRepository, RentalOrderWriteOnlyRepository>();
         }
 
         private static void RegisterAutoMapper(this IServiceCollection services)

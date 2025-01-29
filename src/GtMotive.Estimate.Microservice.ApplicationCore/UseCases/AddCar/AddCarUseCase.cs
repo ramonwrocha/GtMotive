@@ -31,7 +31,8 @@ namespace GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCar
                 Brand = input.Brand,
                 Model = input.Model,
                 ManufacturingYear = new ManufacturingYear(input.ManufacturingYear),
-                Available = input.Available
+                Available = input.Available,
+                Price = input.Price
             });
         }
     }

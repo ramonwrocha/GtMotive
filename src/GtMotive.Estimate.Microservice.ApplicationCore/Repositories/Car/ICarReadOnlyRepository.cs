@@ -21,5 +21,12 @@ namespace GtMotive.Estimate.Microservice.ApplicationCore.Repositories.Car
         /// </summary>
         /// <returns>A task that represents the asynchronous operation. The task result contains a collection of available cars.</returns>
         Task<IEnumerable<Domain.CarEntity>> GetAvailableCars();
+
+        /// <summary>
+        /// Gets a car by its license plate.
+        /// </summary>
+        /// <param name="licensePlate">The license plate of the car.</param>
+        /// <returns>A task that represents the asynchronous operation. The task result contains the car.</returns>
+        Task<Domain.CarEntity> GetCarByLicensePlate(string licensePlate);
     }
 }

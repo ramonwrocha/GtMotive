@@ -29,5 +29,12 @@ namespace GtMotive.Estimate.Microservice.Infrastructure.MongoDb.Repositories
             var result = await _context.Cars.FindAsync(filter);
             return await result.SingleOrDefaultAsync();
         }
+
+        public async Task<CarEntity> GetCarByLicensePlate(string licensePlate)
+        {
+            var filter = Builders<CarEntity>.Filter.Eq("LicensePlate.Value", licensePlate);
+            var result = await _context.Cars.FindAsync(filter);
+            return await result.SingleOrDefaultAsync();
+        }
     }
 }

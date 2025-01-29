@@ -8,33 +8,28 @@ namespace GtMotive.Estimate.Microservice.ApplicationCore.UseCases.RentCar
     public class RentCarInput : IUseCaseInput
     {
         /// <summary>
-        /// Gets or sets the unique identifier of the car.
+        /// Gets or sets the document number of the customer.
         /// </summary>
-        public Guid CarId { get; set; }
+        public string DocumentNumberCustomer { get; set; }
 
         /// <summary>
-        /// Gets or sets the unique identifier of the customer.
+        /// Gets or sets the car license plate.
         /// </summary>
-        public Guid CustomerId { get; set; }
+        public string CarLicensePlate { get; set; }
 
         /// <summary>
-        /// Gets or sets the unique identifier of the employer.
+        /// Gets or sets the rental start date.
         /// </summary>
-        public Guid EmployerId { get; set; }
+        public DateTime RentalStartDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the date and time when the car will be picked up.
+        /// Gets or sets the rental end date.
         /// </summary>
-        public DateTime PickUpDate { get; set; }
+        public DateTime RentalEndDate { get; set; }
 
         /// <summary>
-        /// Gets or sets the date and time when the car will be delivered.
+        /// Gets or sets the total price of the rental.
         /// </summary>
-        public DateTime DeliveryDate { get; set; }
-
-        /// <summary>
-        /// Gets or sets the date and time when the rental record was created.
-        /// </summary>
-        public DateTime CreatedDate { get; set; }
+        public decimal TotalPrice { get; set; }
     }
 }

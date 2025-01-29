@@ -29,5 +29,10 @@
         /// Gets or sets a value indicating whether the car is available.
         /// </summary>
         public bool Available { get; set; }
+
+        /// <summary>
+        /// Gets or sets the price of the car.
+        /// </summary>
+        public decimal Price { get; set; }
     }
 }

@@ -1,13 +1,18 @@
-﻿using GtMotive.Estimate.Microservice.Domain.Bases;
+﻿using System;
 using GtMotive.Estimate.Microservice.Domain.ValueObjects;
 
-namespace GtMotive.Estimate.Microservice.Domain
+namespace GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCustomer
 {
     /// <summary>
-    /// Represents a car entity with an Id, Brand, Model, Year, and Availability.
+    /// Represents the output of the GetAvailableCars use case.
     /// </summary>
-    public sealed class CarEntity : EntityBase
+    public class GetAvailableCarsOutput : IUseCaseOutput
     {
+        /// <summary>
+        /// Gets or sets the unique identifier of the car.
+        /// </summary>
+        public Guid Id { get; set; }
+
         /// <summary>
         /// Gets or sets the license plate of the car.
         /// </summary>
@@ -32,10 +37,5 @@ namespace GtMotive.Estimate.Microservice.Domain
         /// Gets or sets a value indicating whether gets or sets the available status of the car.
         /// </summary>
         public bool Available { get; set; }
-
-        /// <summary>
-        /// Gets or sets the price of the car.
-        /// </summary>
-        public decimal Price { get; set; }
     }
 }
