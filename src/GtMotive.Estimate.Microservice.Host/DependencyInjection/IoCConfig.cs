@@ -1,4 +1,7 @@
-﻿using GtMotive.Estimate.Microservice.ApplicationCore.Mappings;
+﻿using Azure.Identity;
+using Azure.Security.KeyVault.Secrets;
+using System;
+using GtMotive.Estimate.Microservice.ApplicationCore.Mappings;
 using GtMotive.Estimate.Microservice.ApplicationCore.Repositories;
 using GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCar;
 using GtMotive.Estimate.Microservice.Infrastructure.MongoDb;
@@ -21,7 +24,19 @@ namespace GtMotive.Estimate.Microservice.Host.DependencyInjection
 
         private static void RegisterData(this IServiceCollection services, IConfiguration configuration)
         {
-            services.Configure<MongoDbSettings>(configuration.GetSection("MongoDb"));
+            var keyVaultUri = configuration["MongoDb:KeyVaultUri"];
+            var secretName = configuration["MongoDb:SecretName"];
+
+            var client = new SecretClient(new Uri(keyVaultUri), new DefaultAzureCredential());
+            var secretTask = client.GetSecretAsync(secretName);
+            secretTask.Wait();
+            var secretValue = secretTask.Result.Value;
+
+            services.Configure<MongoDbSettings>(options =>
+            {
+                options.ConnectionString = secretValue.Value;
+                options.MongoDbDatabaseName = configuration["MongoDb:MongoDbDatabaseName"];
+            });
             services.AddSingleton<MongoService>();
         }
 
