@@ -1,4 +1,4 @@
-﻿using System;
+﻿using GtMotive.Estimate.Microservice.Domain.Bases;
 using GtMotive.Estimate.Microservice.Domain.ValueObjects;
 
 namespace GtMotive.Estimate.Microservice.Domain
@@ -6,13 +6,8 @@ namespace GtMotive.Estimate.Microservice.Domain
     /// <summary>
     /// Represents a car entity with an Id, Brand, Model, Year, and Availability.
     /// </summary>
-    public sealed class Car
+    public sealed class CarEntity : EntityBase
     {
-        /// <summary>
-        /// Gets or sets the unique identifier for the car.
-        /// </summary>
-        public Guid Id { get; set; }
-
         /// <summary>
         /// Gets or sets the license plate of the car.
         /// </summary>

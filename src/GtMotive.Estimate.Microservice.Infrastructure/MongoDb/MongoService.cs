@@ -19,17 +19,17 @@ namespace GtMotive.Estimate.Microservice.Infrastructure.MongoDb
             Map();
         }
 
-        public IMongoCollection<Car> Cars => _database.GetCollection<Car>("Cars");
+        public IMongoCollection<CarEntity> Cars => _database.GetCollection<CarEntity>("Cars");
 
         public IMongoCollection<Order> Orders => _database.GetCollection<Order>("Orders");
 
-        public IMongoCollection<Customer> Customers => _database.GetCollection<Customer>("Customers");
+        public IMongoCollection<CustomerEntity> Customers => _database.GetCollection<CustomerEntity>("Customers");
 
         public IMongoCollection<Employer> Employers => _database.GetCollection<Employer>("Employers");
 
         private static void Map()
         {
-            BsonClassMap.RegisterClassMap<Car>(item =>
+            BsonClassMap.RegisterClassMap<CarEntity>(item =>
             {
                 item.AutoMap();
             });
@@ -39,7 +39,7 @@ namespace GtMotive.Estimate.Microservice.Infrastructure.MongoDb
                 item.AutoMap();
             });
 
-            BsonClassMap.RegisterClassMap<Customer>(item =>
+            BsonClassMap.RegisterClassMap<CustomerEntity>(item =>
             {
                 item.AutoMap();
             });

@@ -1,4 +1,4 @@
-﻿using GtMotive.Estimate.Microservice.Domain.Base;
+﻿using GtMotive.Estimate.Microservice.Domain.Bases;
 using GtMotive.Estimate.Microservice.Domain.Enums;
 
 namespace GtMotive.Estimate.Microservice.Domain
@@ -6,7 +6,7 @@ namespace GtMotive.Estimate.Microservice.Domain
     /// <summary>
     /// Represents an employer who is a type of user.
     /// </summary>
-    public sealed class Employer : UserBase
+    public sealed class Employer : EntityBase
     {
         /// <summary>
         /// Gets or sets the position of the employer.

@@ -1,9 +1,11 @@
-﻿using Azure.Identity;
+﻿using System;
+using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
-using System;
 using GtMotive.Estimate.Microservice.ApplicationCore.Mappings;
 using GtMotive.Estimate.Microservice.ApplicationCore.Repositories;
+using GtMotive.Estimate.Microservice.ApplicationCore.Repositories.Car;
 using GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCar;
+using GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCustomer;
 using GtMotive.Estimate.Microservice.Infrastructure.MongoDb;
 using GtMotive.Estimate.Microservice.Infrastructure.MongoDb.Repositories;
 using GtMotive.Estimate.Microservice.Infrastructure.MongoDb.Settings;
@@ -43,12 +45,14 @@ namespace GtMotive.Estimate.Microservice.Host.DependencyInjection
         private static void RegisterUseCases(this IServiceCollection services)
         {
             services.AddSingleton<IAddCarUseCase, AddCarUseCase>();
+            services.AddSingleton<IAddCustomerUseCase, AddCustomerUseCase>();
         }
 
         private static void RegisterRepositories(this IServiceCollection services)
         {
             services.AddSingleton<ICarReadOnlyRepository, CarRepository>();
             services.AddSingleton<ICarWriteOnlyRepository, CarRepository>();
+            services.AddSingleton<ICustomerWriteOnlyRepository, CustomerRepository>();
         }
 
         private static void RegisterAutoMapper(this IServiceCollection services)

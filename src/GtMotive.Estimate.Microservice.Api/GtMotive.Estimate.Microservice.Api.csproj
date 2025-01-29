@@ -17,6 +17,15 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <Compile Remove="UseCases\AddEmployer\**" />
+      <Compile Remove="UseCases\RentCar\**" />
+      <EmbeddedResource Remove="UseCases\AddEmployer\**" />
+      <EmbeddedResource Remove="UseCases\RentCar\**" />
+      <None Remove="UseCases\AddEmployer\**" />
+      <None Remove="UseCases\RentCar\**" />
+    </ItemGroup>
+
+    <ItemGroup>
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
 
@@ -34,9 +43,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="UseCases\GetAvailableCars\" />
       <Folder Include="UseCases\CarReturn\" />
-      <Folder Include="UseCases\RentCar\" />
     </ItemGroup>
 
 </Project>

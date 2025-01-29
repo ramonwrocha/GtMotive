@@ -4,15 +4,15 @@ using GtMotive.Estimate.Microservice.Domain;
 namespace GtMotive.Estimate.Microservice.ApplicationCore.Repositories
 {
     /// <summary>
-    /// Interface for write-only repository operations for Car entities.
+    /// Interface for write-only customer repository.
     /// </summary>
-    public interface ICarWriteOnlyRepository
+    public interface ICustomerWriteOnlyRepository
     {
         /// <summary>
-        /// Adds a new car to the repository.
+        /// Adds a new customer to the repository.
         /// </summary>
-        /// <param name="car">The car to add.</param>
+        /// <param name="customer">The customer to add.</param>
         /// <returns>A task that represents the asynchronous operation.</returns>
-        Task AddCar(Car car);
+        Task AddCustomer(CustomerEntity customer);
     }
 }

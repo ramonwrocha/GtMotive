@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using GtMotive.Estimate.Microservice.ApplicationCore.Repositories;
+using GtMotive.Estimate.Microservice.ApplicationCore.Repositories.Car;
 using GtMotive.Estimate.Microservice.Domain.ValueObjects;
 
 namespace GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCar
@@ -25,7 +25,7 @@ namespace GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCar
         {
             ArgumentNullException.ThrowIfNull(input);
 
-            await _carWriteOnlyRepository.AddCar(new Domain.Car
+            await _carWriteOnlyRepository.AddCar(new Domain.CarEntity
             {
                 LicensePlate = new LicensePlate(input.LicensePlate),
                 Brand = input.Brand,
