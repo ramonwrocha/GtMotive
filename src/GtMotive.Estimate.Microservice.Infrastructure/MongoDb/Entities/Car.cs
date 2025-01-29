@@ -12,7 +12,7 @@ namespace GtMotive.Estimate.Microservice.Infrastructure.MongoDb.Entities
 
         public string Model { get; set; }
 
-        public DateTime ManufacturingDate { get; set; }
+        public int ManufacturingYear { get; set; }
 
         public bool Available { get; set; }
     }

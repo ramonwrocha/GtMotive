@@ -30,7 +30,7 @@ namespace GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCar
                 LicensePlate = new LicensePlate(input.LicensePlate),
                 Brand = input.Brand,
                 Model = input.Model,
-                ManufacturingDate = new ManufacturingDate(input.ManufacturingDate),
+                ManufacturingYear = new ManufacturingYear(input.ManufacturingYear),
                 Available = input.Available
             });
         }

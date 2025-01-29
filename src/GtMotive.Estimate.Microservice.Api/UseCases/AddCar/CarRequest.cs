@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace GtMotive.Estimate.Microservice.Api.UseCases.AddCar
+﻿namespace GtMotive.Estimate.Microservice.Api.UseCases.AddCar
 {
-    public record CarRequest
+    public class CarRequest
     {
         public string LicensePlate { get; set; }
 
@@ -10,7 +8,7 @@ namespace GtMotive.Estimate.Microservice.Api.UseCases.AddCar
 
         public string Model { get; set; }
 
-        public DateTime? ManufacturingDate { get; set; }
+        public int? ManufacturingYear { get; set; }
 
         public bool? Available { get; set; }
     }

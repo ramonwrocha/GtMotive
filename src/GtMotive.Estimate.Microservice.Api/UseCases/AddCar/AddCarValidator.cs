@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using System;
+using FluentValidation;
 
 namespace GtMotive.Estimate.Microservice.Api.UseCases.AddCar
 {
@@ -10,7 +11,8 @@ namespace GtMotive.Estimate.Microservice.Api.UseCases.AddCar
             RuleFor(x => x.Brand).NotEmpty().WithMessage("Brand is required.");
             RuleFor(x => x.Model).NotEmpty().WithMessage("Model is required.");
             RuleFor(x => x.Available).NotNull().WithMessage("Available is required.");
-            RuleFor(x => x.ManufacturingDate).NotNull().WithMessage("ManufacturingDate is required.");
+            RuleFor(x => x.ManufacturingYear).NotNull().WithMessage("ManufacturingYear is required.")
+                .LessThanOrEqualTo(DateTime.Now.Year).WithMessage("ManufacturingYear not valid.");
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCar
+﻿namespace GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCar
 {
     /// <summary>
     /// Represents the input data required to add a car.
@@ -25,7 +23,7 @@ namespace GtMotive.Estimate.Microservice.ApplicationCore.UseCases.AddCar
         /// <summary>
         /// Gets or sets the manufacturing date of the car.
         /// </summary>
-        public DateTime ManufacturingDate { get; set; }
+        public int ManufacturingYear { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the car is available.

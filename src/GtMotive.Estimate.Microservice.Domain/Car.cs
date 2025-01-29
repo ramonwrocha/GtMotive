@@ -31,7 +31,7 @@ namespace GtMotive.Estimate.Microservice.Domain
         /// <summary>
         /// Gets or sets the manufacturing date of the car.
         /// </summary>
-        public ManufacturingDate ManufacturingDate { get; set; }
+        public ManufacturingYear ManufacturingYear { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether gets or sets the available status of the car.
